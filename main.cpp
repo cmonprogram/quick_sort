@@ -36,10 +36,10 @@ if constexpr(std::is_same<C, std::nullptr_t>::value){
     QuickSort(v_high,comp);
 }
 
-v_low.push_back(base_elem);
+v_low.push_back(std::move(base_elem));
 
-std::copy(v_low.begin(), v_low.end(),input.begin());
-std::copy(v_high.begin(), v_high.end(), input.begin() + v_low.size());
+std::move(v_low.begin(), v_low.end(),input.begin());
+std::move(v_high.begin(), v_high.end(), input.begin() + v_low.size());
 }
 
 int main(){
